@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotNeat.Physics.Measurements", "dotNeat.Physics.Measurements\dotNeat.Physics.Measurements.csproj", "{4328A69F-FF8D-44B0-8895-ECB6930ADA70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest.Physics.Measurements", "UnitTest.Physics.Measurements\UnitTest.Physics.Measurements.csproj", "{7F10F61F-F06C-49E7-9B74-8B4F57F70E68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4328A69F-FF8D-44B0-8895-ECB6930ADA70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4328A69F-FF8D-44B0-8895-ECB6930ADA70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4328A69F-FF8D-44B0-8895-ECB6930ADA70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4328A69F-FF8D-44B0-8895-ECB6930ADA70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F10F61F-F06C-49E7-9B74-8B4F57F70E68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F10F61F-F06C-49E7-9B74-8B4F57F70E68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F10F61F-F06C-49E7-9B74-8B4F57F70E68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F10F61F-F06C-49E7-9B74-8B4F57F70E68}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
