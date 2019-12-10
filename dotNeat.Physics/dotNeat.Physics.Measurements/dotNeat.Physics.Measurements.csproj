@@ -8,7 +8,8 @@
     <Description>Easy to use domain driven physics models.</Description>
     <PackageReleaseNotes>
         - feat ref #2 - Design and implement basic measurement abstractions
-        </PackageReleaseNotes>
+        - feat ref #3 - Implement Temperature measurement
+    </PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
