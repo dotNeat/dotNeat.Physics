@@ -1,5 +1,5 @@
 ﻿//
-// TemperatureUnit.cs
+// PrototypeBase.cs
 // 12/11/2019 
 //
 // Author:
@@ -26,14 +26,29 @@
 // THE SOFTWARE.
 //
 
-namespace dotNeat.Physics.Measurements
+namespace dotNeat.Common.DesignPatterns.Prototype
 {
     using System;
 
-    public enum TemperatureUnit
+    public abstract class PrototypeBase<TConcrete>
+        : IPrototype<TConcrete>, IPrototype
+        where TConcrete : IPrototype<TConcrete>, IPrototype
+        
     {
-        Kelvin,
-        Celsius,
-        Fahrenheit,
+        protected PrototypeBase()
+        {
+        }
+
+        public abstract TConcrete Clone();
+        // OR
+        //public virtual TConcrete Clone()
+        //{
+        //    return (TConcrete) this.MemberwiseClone();
+        //}
+
+        IPrototype IPrototype.Clone()
+        {
+            return this.Clone();
+        }
     }
 }

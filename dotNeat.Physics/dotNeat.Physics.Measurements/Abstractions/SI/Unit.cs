@@ -1,6 +1,6 @@
 ﻿//
-// TemperatureUnit.cs
-// 12/11/2019 
+// Unit.cs
+// 12/24/2019 
 //
 // Author:
 //       Andrey Kornich (Wide Spectrum Computing LLC) <akornich@gmail.com>
@@ -25,15 +25,21 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 //
-
-namespace dotNeat.Physics.Measurements
+using System;
+namespace dotNeat.Physics.Measurements.Abstractions.SI
 {
-    using System;
-
-    public enum TemperatureUnit
+    public class Unit
     {
-        Kelvin,
-        Celsius,
-        Fahrenheit,
+        private readonly Prefix _prefix;
+        private readonly Quantity _quantity;
+
+        public Prefix Prefix {  get { return this._prefix; } }
+        public Quantity Quantity { get { return this._quantity; } }
+
+        public Unit(Prefix prefix, Quantity quantity)
+        {
+            this._prefix = prefix;
+            this._quantity = quantity;
+        }
     }
 }

@@ -1,5 +1,5 @@
 ﻿//
-// TemperatureUnit.cs
+// PrefixID.cs
 // 12/11/2019 
 //
 // Author:
@@ -25,15 +25,35 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 //
-
-namespace dotNeat.Physics.Measurements
+namespace dotNeat.Physics.Measurements.Abstractions.SI
 {
     using System;
 
-    public enum TemperatureUnit
+    public enum PrefixID : SByte 
     {
-        Kelvin,
-        Celsius,
-        Fahrenheit,
+        // a member value represent power of base10 of the member,
+        // i.e. Y = 10^Yotta, k = 10^Kilo, 1 = 10^None, m = 10^Milli y = 10^Yocto, etc.
+
+        Yotta =  24,
+        Zetta =  21,
+        Exa   =  18,
+        Peta  =  15,
+        Tera  =  12,
+        Giga  =   9,
+        Mega  =   6,
+        Kilo  =   3,
+        Hecto =   2,
+        Deca  =   1,
+        None  =   0,
+        Deci  =  -1,
+        Centi =  -2,
+        Milli =  -3,
+        Micro =  -6,
+        Nano  =  -9,
+        Pico  = -12,
+        Femto = -15,
+        Atto  = -18,
+        Zepto = -21,
+        Yocto = -24,
     }
 }

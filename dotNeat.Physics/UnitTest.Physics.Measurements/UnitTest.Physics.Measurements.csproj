@@ -16,4 +16,8 @@
   <ItemGroup>
     <ProjectReference Include="..\dotNeat.Physics.Measurements\dotNeat.Physics.Measurements.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Abstractions\" />
+    <Folder Include="Abstractions\SI\" />
+  </ItemGroup>
 </Project>

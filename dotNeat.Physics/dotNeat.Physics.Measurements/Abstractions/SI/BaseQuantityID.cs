@@ -1,6 +1,6 @@
 ﻿//
-// TemperatureUnit.cs
-// 12/11/2019 
+// BaseQuantityID.cs
+// 12/24/2019 
 //
 // Author:
 //       Andrey Kornich (Wide Spectrum Computing LLC) <akornich@gmail.com>
@@ -25,15 +25,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 //
-
-namespace dotNeat.Physics.Measurements
+namespace dotNeat.Physics.Measurements.Abstractions.SI
 {
     using System;
 
-    public enum TemperatureUnit
+    public enum BaseQuantityID : Byte
     {
-        Kelvin,
-        Celsius,
-        Fahrenheit,
+        Time,
+        Length,
+        Mass,
+        ElectricCurrent,
+        ThermodynamicTemperature,
+        AmountOfSubstance,
+        LuminousIntensity,
     }
 }

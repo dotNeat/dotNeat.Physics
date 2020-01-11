@@ -1,5 +1,6 @@
 ﻿//
 // MeasurementBase.cs
+// 12/11/2019 
 //
 // Author:
 //       Andrey Kornich (Wide Spectrum Computing LLC) <akornich@gmail.com>
@@ -23,15 +24,19 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+//
 namespace dotNeat.Physics.Measurements
 {
     using System;
+    using dotNeat.Common.DesignPatterns.Prototype;
 
     public abstract class MeasurementBase<TValue, TUnit, TConcreteMeasurement>
         : IMeasurement
         , IEquatable<TConcreteMeasurement>
         , IComparable<TConcreteMeasurement>
-        where TConcreteMeasurement : MeasurementBase<TValue, TUnit, TConcreteMeasurement>
+        , IPrototype<TConcreteMeasurement>
+        , IPrototype
+        where TConcreteMeasurement : MeasurementBase<TValue, TUnit, TConcreteMeasurement>, IPrototype
         where TValue : IEquatable<TValue>, IComparable<TValue>, IComparable
         where TUnit : struct, IComparable
     {
@@ -142,6 +147,16 @@ namespace dotNeat.Physics.Measurements
         public override int GetHashCode()
         {
             throw new NotImplementedException();
+        }
+
+        public TConcreteMeasurement Clone()
+        {
+            throw new NotImplementedException();
+        }
+
+        IPrototype IPrototype.Clone()
+        {
+            return this.Clone();
         }
 
         public static bool operator == (

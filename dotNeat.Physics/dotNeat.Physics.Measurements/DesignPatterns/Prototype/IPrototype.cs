@@ -1,5 +1,5 @@
 ﻿//
-// TemperatureUnit.cs
+// IPrototype.cs
 // 12/11/2019 
 //
 // Author:
@@ -26,14 +26,18 @@
 // THE SOFTWARE.
 //
 
-namespace dotNeat.Physics.Measurements
+namespace dotNeat.Common.DesignPatterns.Prototype
 {
     using System;
 
-    public enum TemperatureUnit
+    public interface IPrototype
     {
-        Kelvin,
-        Celsius,
-        Fahrenheit,
+        IPrototype Clone();
+    }
+
+    public interface IPrototype<TPrototyped>
+        where TPrototyped : IPrototype<TPrototyped>, IPrototype
+    {
+        TPrototyped Clone();
     }
 }

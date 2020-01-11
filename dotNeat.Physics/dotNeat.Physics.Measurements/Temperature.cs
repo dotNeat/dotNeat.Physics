@@ -1,5 +1,6 @@
 ﻿//
 // Temperature.cs
+// 12/11/2019 
 //
 // Author:
 //       Andrey Kornich (Wide Spectrum Computing LLC) <akornich@gmail.com>
@@ -23,6 +24,8 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+//
+
 namespace dotNeat.Physics.Measurements
 {
     using System;
@@ -146,5 +149,27 @@ namespace dotNeat.Physics.Measurements
         {
             return ReferenceEquals(left, null) ? ReferenceEquals(right, null) : left.CompareTo(right) >= 0;
         }
+
+
+        public static Temperature Create(double value, TemperatureUnit unit = TemperatureBaseUnit)
+        {
+            return new Temperature(value, unit);
+        }
+
+        public static Temperature InKelvin(double value)
+        {
+            return Temperature.Create(value, TemperatureUnit.Kelvin);
+        }
+
+        public static Temperature InCelsius(double value)
+        {
+            return Temperature.Create(value, TemperatureUnit.Celsius);
+        }
+
+        public static Temperature InFahrenheit(double value)
+        {
+            return Temperature.Create(value, TemperatureUnit.Fahrenheit);
+        }
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿//
-// TemperatureUnit.cs
-// 12/11/2019 
+// BaseQuantity.cs
+// 12/24/2019 
 //
 // Author:
 //       Andrey Kornich (Wide Spectrum Computing LLC) <akornich@gmail.com>
@@ -25,15 +25,20 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 //
-
-namespace dotNeat.Physics.Measurements
+namespace dotNeat.Physics.Measurements.Abstractions.SI
 {
     using System;
 
-    public enum TemperatureUnit
+    public class Quantity
     {
-        Kelvin,
-        Celsius,
-        Fahrenheit,
+        private readonly Enum _id;
+        private readonly string _dimensionSymbol;
+        private readonly string _unitSymbol;
+        private readonly object _unitID;
+
+
+        public Quantity()
+        {
+        }
     }
 }
