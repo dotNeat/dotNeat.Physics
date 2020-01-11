@@ -11,11 +11,4 @@
         - feat ref #3 - Implement Temperature measurement
     </PackageReleaseNotes>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Folder Include="Abstractions\" />
-    <Folder Include="DesignPatterns\" />
-    <Folder Include="DesignPatterns\Prototype\" />
-    <Folder Include="Abstractions\SI\" />
-  </ItemGroup>
 </Project>

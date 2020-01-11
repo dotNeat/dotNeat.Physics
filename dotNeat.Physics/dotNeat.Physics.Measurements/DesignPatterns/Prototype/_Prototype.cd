@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="dotNeat.Common.DesignPatterns.Prototype.PrototypeBase&lt;TConcrete&gt;">
+    <Position X="5.75" Y="1" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAABA=</HashCode>
+      <FileName>DesignPatterns\Prototype\PrototypeBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="dotNeat.Common.DesignPatterns.Prototype.IPrototype">
+    <Position X="1.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>DesignPatterns\Prototype\IPrototype.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="dotNeat.Common.DesignPatterns.Prototype.IPrototype&lt;TPrototyped&gt;">
+    <Position X="1.5" Y="2.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>DesignPatterns\Prototype\IPrototype.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

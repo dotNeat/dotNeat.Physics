@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="dotNeat.Physics.Measurements.Abstractions.SI.Prefix">
+    <Position X="4" Y="3.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAIAAAAAAAAAAAAABAAAQAAIAAAAAAAAAgAAAACAA=</HashCode>
+      <FileName>Abstractions\SI\Prefix.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="dotNeat.Physics.Measurements.Abstractions.SI.Quantity">
+    <Position X="4" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAACAAAABAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Abstractions\SI\Quantity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="dotNeat.Physics.Measurements.Abstractions.SI.Unit">
+    <Position X="4" Y="7" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAACAAAAAAAAQAAAgAAAAAA=</HashCode>
+      <FileName>Abstractions\SI\Unit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="dotNeat.Physics.Measurements.Abstractions.SI.BaseQuantityID">
+    <Position X="1" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAABAAABABAAAAAAAAQAAAAAACAAQA=</HashCode>
+      <FileName>Abstractions\SI\BaseQuantityID.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="dotNeat.Physics.Measurements.Abstractions.SI.PrefixID">
+    <Position X="1" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACoAAAACAAFAAAAABAAQMAgAAAAIDAAgABAQEAABA=</HashCode>
+      <FileName>Abstractions\SI\PrefixID.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
