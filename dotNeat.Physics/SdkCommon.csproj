@@ -1,0 +1,88 @@
+<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="16.0">
+  
+  <PropertyGroup Label="Toolset Related">
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>8.0</LangVersion>
+    <DefineConstants>$(DefineConstants);TRACE</DefineConstants>
+    <Configurations>$(Configurations);Instrumented</Configurations>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Instrumented build" Condition="'$(Configuration)'=='Instrumented' And '$(Platform)' == 'AnyCPU'">
+    <DefineConstants>$(DefineConstants);INSTRUMENT</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Label="SDK Common NuGet Packaging Info" >
+
+    <SdkVersion>0.1.0</SdkVersion>
+    <SdkVersionSuffix></SdkVersionSuffix>
+    <PackageReleaseNotes>
+      - feat: resolve #4: Implement SdkCommon.csproj
+      - feat: resolve #3: Implement Temperature measurement
+      - feat: resolve #2: Design and implement basic measurement abstractions
+      - feat: resolve #1: Setup Measurements component project
+    </PackageReleaseNotes>
+
+    <!--
+    Release Notes Tagging Conventions:
+    ==================================
+    
+    1.  Every entry within the PackageReleaseNotes element is expected to be started with
+        at least one of the tags listed:
+        
+        feat:     A new feature
+        fix:      A bug fix
+        docs:     Documentation only changes
+        style:    Changes that do not affect the meaning of the code
+        refactor: A code change that neither a bug fix nor a new feature
+        perf:     A code change that improves performance
+        test:     Adding or modifying unit test code
+        chore:    Changes to the build process or auxiliary tools and libraries such as documentation generation, etc.
+    
+    2.  Every entry within the PackageReleaseNotes element is expected to be tagged with 
+        EITHER 
+        "resolve #GITHUB_ISSUE_NUMBER:" - meaning completely addresses the GitHub issue
+        OR 
+        "ref #GITHUB_ISSUE_NUMBER:" - meaning relevant to the GitHub issue
+        depending on what is more appropriate in each case.
+    -->
+    
+    <Version>$(SdkVersion)$(SdkVersionSuffix)</Version>
+    <AssemblyVersion>$(SdkVersion)</AssemblyVersion>
+    <FileVersion>$(SdkVersion)</FileVersion>
+    <Company>Wide Spectrum Computing LLC, dotNeat</Company>
+    <Owners>Andrey Kornich, Wide Spectrum Computing LLC, dotNeat</Owners>
+    <Authors>Andrey Kornich (Wide Spectrum Computing LLC)</Authors>
+    <Title>dotNeat.Physics</Title>
+    <Product>dotNeat.Physics SDK</Product>
+    <Description>Easy to use domain driven physics models.</Description>
+    <CurrentYear>$([System.DateTime]::Now.ToString(yyyy))</CurrentYear>
+    <Copyright>Copyright (c) 2019-$(CurrentYear) Wide Spectrum Computing LLC</Copyright>
+    <PackOnBuild>true</PackOnBuild>
+    <PackageTags>dotNeat;physics;sdk;domain-model</PackageTags>
+    <RepositoryUrl>https://github.com/dotNeat/dotNeat.Physics.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/dotNeat/dotNeat.Physics</PackageProjectUrl>
+    <PackageIcon>dotNeat-logo.png</PackageIcon>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <None Include="..\dotNeat-logo.png" Pack="true" Visible="false" PackagePath=""/>
+  </ItemGroup>
+
+  <ItemGroup Label=".NET Global References">
+    <!--ADD here-->
+  </ItemGroup>
+
+  <ItemGroup Label="Project References">
+    <!--ADD here-->
+  </ItemGroup>
+
+  <ItemGroup Label="Package References">
+    <!--ADD here-->
+  </ItemGroup>
+</Project>

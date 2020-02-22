@@ -1,14 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="..\SdkCommon.csproj" />
+
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <PackOnBuild>true</PackOnBuild>
-    <PackageVersion>0.1.0</PackageVersion>
-    <Authors>Andrey Kornich (Wide Spectrum Computing LLC)</Authors>
-    <Description>Easy to use domain driven physics models.</Description>
-    <PackageReleaseNotes>
-        - feat ref #2 - Design and implement basic measurement abstractions
-        - feat ref #3 - Implement Temperature measurement
-    </PackageReleaseNotes>
+    <AssemblyName>dotNeat.Physics.Measurements</AssemblyName>
+    <RootNamespace>dotNeat.Physics.Measurements</RootNamespace>
   </PropertyGroup>
+
+  <PropertyGroup Label="Appned or Override SDK Common NuGet Packaging Info">
+    <Title>$(Title): measurements model.</Title>
+    <Description>Measurements model. $(Description)</Description>
+    <PackageTags>$(PackageTags);measurements</PackageTags>
+  </PropertyGroup>
+
 </Project>

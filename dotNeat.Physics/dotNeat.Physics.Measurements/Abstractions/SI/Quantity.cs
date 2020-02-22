@@ -36,7 +36,6 @@ namespace dotNeat.Physics.Measurements.Abstractions.SI
         private readonly string _unitSymbol;
         private readonly object _unitID;
 
-
         public Quantity()
         {
         }

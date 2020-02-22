@@ -1,9 +1,16 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotNeat.Physics.Measurements", "dotNeat.Physics.Measurements\dotNeat.Physics.Measurements.csproj", "{4328A69F-FF8D-44B0-8895-ECB6930ADA70}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotNeat.Physics.Measurements", "dotNeat.Physics.Measurements\dotNeat.Physics.Measurements.csproj", "{4328A69F-FF8D-44B0-8895-ECB6930ADA70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest.Physics.Measurements", "UnitTest.Physics.Measurements\UnitTest.Physics.Measurements.csproj", "{7F10F61F-F06C-49E7-9B74-8B4F57F70E68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest.Physics.Measurements", "UnitTest.Physics.Measurements\UnitTest.Physics.Measurements.csproj", "{7F10F61F-F06C-49E7-9B74-8B4F57F70E68}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionCommon", "SolutionCommon", "{DA31320D-0436-440E-81EC-31693CEA4FF9}"
+	ProjectSection(SolutionItems) = preProject
+		dotNeat-logo.png = dotNeat-logo.png
+		SdkCommon.csproj = SdkCommon.csproj
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,16 +27,21 @@ Global
 		{7F10F61F-F06C-49E7-9B74-8B4F57F70E68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F10F61F-F06C-49E7-9B74-8B4F57F70E68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {030A7FDF-2C65-46D1-9C9B-69D3338386B1}
+	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
 		$0.DotNetNamingPolicy = $1
 		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
-		$0.TextStylePolicy = $2
+		$0.TextStylePolicy = $4
 		$2.inheritsSet = null
 		$2.scope = text/x-csharp
 		$0.CSharpFormattingPolicy = $3
 		$3.scope = text/x-csharp
-		$0.TextStylePolicy = $4
 		$4.TabsToSpaces = True
 		$4.scope = text/plain
 		$0.StandardHeader = $5
