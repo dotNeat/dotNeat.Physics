@@ -18,6 +18,8 @@
     <SdkVersion>0.1.0</SdkVersion>
     <SdkVersionSuffix></SdkVersionSuffix>
     <PackageReleaseNotes>
+      - feat: ref #6: Define abstractions of International System of Quantities (ISQ)
+      - feat: ref #5: Implement SI units model
       - feat: resolve #4: Implement SdkCommon.csproj
       - feat: resolve #3: Implement Temperature measurement
       - feat: resolve #2: Design and implement basic measurement abstractions
@@ -83,6 +85,10 @@
   </ItemGroup>
 
   <ItemGroup Label="Package References">
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <!--ADD here-->
   </ItemGroup>
 </Project>

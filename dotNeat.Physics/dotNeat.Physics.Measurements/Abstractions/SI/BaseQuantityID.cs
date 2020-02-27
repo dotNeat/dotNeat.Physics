@@ -29,7 +29,8 @@ namespace dotNeat.Physics.Measurements.Abstractions.SI
 {
     using System;
 
-    public enum BaseQuantityID : Byte
+    public enum BaseQuantityID 
+        : Byte
     {
         Time,
         Length,

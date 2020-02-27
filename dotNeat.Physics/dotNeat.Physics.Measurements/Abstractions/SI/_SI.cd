@@ -10,7 +10,7 @@
   <Class Name="dotNeat.Physics.Measurements.Abstractions.SI.Quantity">
     <Position X="4.75" Y="0.75" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAACAAAABAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAIAAIAAAAAAACAAAABAAAAAAAAMAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Abstractions\SI\Quantity.cs</FileName>
     </TypeIdentifier>
   </Class>
