@@ -33,39 +33,39 @@ namespace dotNeat.Physics.Measurements
     using System.Linq;
 
     public class Temperature
-        : MeasurementBase<double, TemperatureUnit, Temperature>
+        : MeasurementBase<double, TemperatureUnitID, Temperature>
     {
-        public const TemperatureUnit TemperatureBaseUnit = TemperatureUnit.Kelvin;
+        public const TemperatureUnitID TemperatureBaseUnit = TemperatureUnitID.Kelvin;
 
         public Temperature(double value)
             : this(value, Temperature.TemperatureBaseUnit)
         {
         }
 
-        public Temperature(double value, TemperatureUnit unit)
+        public Temperature(double value, TemperatureUnitID unit)
             : base(value, unit)
         {
         }
 
-        public override TemperatureUnit BaseUnit => Temperature.TemperatureBaseUnit;
+        public override TemperatureUnitID BaseUnit => Temperature.TemperatureBaseUnit;
 
         protected override Temperature ToBaseUnit()
         {
-            Debug.Assert(this.BaseUnit == TemperatureUnit.Kelvin);
+            Debug.Assert(this.BaseUnit == TemperatureUnitID.Kelvin);
 
             switch (this.Unit)
             {
-                case TemperatureUnit.Celsius:
+                case TemperatureUnitID.Celsius:
                     return new Temperature(
                         this.Value + 273.15
                         , this.BaseUnit
                         );
-                case TemperatureUnit.Fahrenheit:
+                case TemperatureUnitID.Fahrenheit:
                     return new Temperature(
                         ((this.Value + 459.67) * 5) / 9
                         , this.BaseUnit
                         );
-                case TemperatureUnit.Kelvin:
+                case TemperatureUnitID.Kelvin:
                     return this;
                 default:
                     const string msg = "Unexpected enum value!";
@@ -74,24 +74,24 @@ namespace dotNeat.Physics.Measurements
             }
         }
 
-        protected override Temperature FromBaseUnitAs(TemperatureUnit unit)
+        protected override Temperature FromBaseUnitAs(TemperatureUnitID unit)
         {
             Debug.Assert(this.Unit == this.BaseUnit);
-            Debug.Assert(this.BaseUnit == TemperatureUnit.Kelvin);
+            Debug.Assert(this.BaseUnit == TemperatureUnitID.Kelvin);
 
             switch (unit)
             {
-                case TemperatureUnit.Celsius:
+                case TemperatureUnitID.Celsius:
                     return new Temperature(
                         this.Value - 273.15
                         , unit
                         );
-                case TemperatureUnit.Fahrenheit:
+                case TemperatureUnitID.Fahrenheit:
                     return new Temperature(
                         ((this.Value * 5) / 9) - 459.67
                         , unit
                         );
-                case TemperatureUnit.Kelvin:
+                case TemperatureUnitID.Kelvin:
                     return this;
                 default:
                     const string msg = "Unexpected enum value!";
@@ -151,24 +151,24 @@ namespace dotNeat.Physics.Measurements
         }
 
 
-        public static Temperature Create(double value, TemperatureUnit unit = TemperatureBaseUnit)
+        public static Temperature Create(double value, TemperatureUnitID unit = TemperatureBaseUnit)
         {
             return new Temperature(value, unit);
         }
 
         public static Temperature InKelvin(double value)
         {
-            return Temperature.Create(value, TemperatureUnit.Kelvin);
+            return Temperature.Create(value, TemperatureUnitID.Kelvin);
         }
 
         public static Temperature InCelsius(double value)
         {
-            return Temperature.Create(value, TemperatureUnit.Celsius);
+            return Temperature.Create(value, TemperatureUnitID.Celsius);
         }
 
         public static Temperature InFahrenheit(double value)
         {
-            return Temperature.Create(value, TemperatureUnit.Fahrenheit);
+            return Temperature.Create(value, TemperatureUnitID.Fahrenheit);
         }
 
     }

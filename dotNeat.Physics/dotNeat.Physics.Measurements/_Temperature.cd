@@ -7,11 +7,11 @@
       <FileName>Temperature.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="dotNeat.Physics.Measurements.TemperatureUnit">
+  <Enum Name="dotNeat.Physics.Measurements.TemperatureUnitID">
     <Position X="1.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAIAAAAAAACAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>TemperatureUnit.cs</FileName>
+      <FileName>TemperatureUnitID.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />

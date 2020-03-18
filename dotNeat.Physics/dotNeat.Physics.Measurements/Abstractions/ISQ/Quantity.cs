@@ -120,6 +120,19 @@
             bool isBaseQuantity = false) 
             : base(id)
         {
+            this._name = name;
+            this._symbol = symbol;
+            this._description = description;
+            this._dimension = dimension;
+            this._comment = comment;
+            this._siUnit = siUnit;
+            this._isBaseQuantity = isBaseQuantity;
+        }
+
+        public override string ToString()
+        {
+            string suffix = this._isBaseQuantity ? "(base quantity)" : string.Empty;
+            return $"{this._name} ({this._symbol}): {this._description}, [{this._dimension}] {suffix}";
         }
 
         #region Implementation of IQuantity

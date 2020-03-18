@@ -35,7 +35,6 @@ namespace dotNeat.Physics.Measurements.Abstractions.SI
         //NOTE: The base units/quantities have unique "Dimension Symbol" and "Definition" defined
         //      while the derived units/quantities do not have these properties defined
         //      However, the base units/quantities have extra properties defined: "In SI base units" (all) and "In other SI units" (almost all)
-        private readonly Enum _id;
         private readonly string _dimensionSymbol;
         private readonly string _unitSymbol;
         private readonly object _unitID;

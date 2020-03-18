@@ -12,21 +12,21 @@ namespace UnitTest.Physics.Measurements
         [TestMethod]
         public void BasicTest()
         {
-            TemperatureUnit defaultUnit = TemperatureUnit.Kelvin;
+            TemperatureUnitID defaultUnit = TemperatureUnitID.Kelvin;
             Temperature measurement = new Temperature(0);
             Console.WriteLine($"Temperature: {measurement}");
             Trace.WriteLine($"Temperature: {measurement}");
             Assert.AreEqual(defaultUnit, measurement.BaseUnit);
 
-            Temperature tF = new Temperature(32, TemperatureUnit.Fahrenheit);
-            Temperature tC = new Temperature(0, TemperatureUnit.Celsius);
+            Temperature tF = new Temperature(32, TemperatureUnitID.Fahrenheit);
+            Temperature tC = new Temperature(0, TemperatureUnitID.Celsius);
             Trace.WriteLine(tF);
             Trace.WriteLine(tC);
             Assert.AreEqual(tF, tC);
 
-            Assert.AreNotEqual(new Temperature(32, TemperatureUnit.Fahrenheit), new Temperature(-1, TemperatureUnit.Celsius));
-            Assert.AreEqual(new Temperature(32, TemperatureUnit.Fahrenheit), new Temperature(0, TemperatureUnit.Celsius));
-            Assert.AreNotEqual(new Temperature(32, TemperatureUnit.Fahrenheit), new Temperature(1, TemperatureUnit.Celsius));
+            Assert.AreNotEqual(new Temperature(32, TemperatureUnitID.Fahrenheit), new Temperature(-1, TemperatureUnitID.Celsius));
+            Assert.AreEqual(new Temperature(32, TemperatureUnitID.Fahrenheit), new Temperature(0, TemperatureUnitID.Celsius));
+            Assert.AreNotEqual(new Temperature(32, TemperatureUnitID.Fahrenheit), new Temperature(1, TemperatureUnitID.Celsius));
         }
     }
 }

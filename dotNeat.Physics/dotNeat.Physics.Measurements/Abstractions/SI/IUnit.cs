@@ -7,9 +7,10 @@
 
     public interface IUnit
     {
-        Enum UnitID { get; }
+        Enum ID { get; }
         string Name { get; }
-        PrefixID PrefixId { get; }
+        string Symbol {get; }
+        PrefixID? PrefixId { get; }
         QuantityID QuantityId { get; }
 
         // Related alternative base unit properties:

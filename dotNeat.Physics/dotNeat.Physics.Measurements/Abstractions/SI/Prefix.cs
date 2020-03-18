@@ -35,7 +35,6 @@ namespace dotNeat.Physics.Measurements.Abstractions.SI
         //private static readonly List<Prefix> siSet;
 
         // data seed fields:
-        private readonly PrefixID _id;
         private readonly string _symbol;
 
         // calculated once data fields:
