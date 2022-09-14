@@ -5,7 +5,6 @@
     using System.Text;
 
     public enum QuantityID
-        : byte
     {
         // Base quantities:
         Length,
@@ -16,9 +15,31 @@
         AmountOfSubstance,
         LuminousIntensity,
 
+        // Supplementary quantities:
+        PlaneAngle,
+        SolidAngle,
+
         // Derived quantities:
         Absement,
         AbsorbedDoseRate,
+        Acceleration,
+        AngularAcceleration,
+        AngularMomentum,
+        AngularVelocity,
+        Area,
+        AreaMassDensity,
+        Capacitance,
+        CatalyticActivityConcentration,
+        CentrifugalForce,
+        ChemicalPotential,
+        Crackle,
+        CurrentDensity,
+        DoseEquivalent,
+        DynamicViscosity,
+        ElectricCharge,
+        ElectricChrageDensity,
+        ElectricDipoleMoment,
+        ElectricDisplacementField,
         //TODO continue from https://en.wikipedia.org/wiki/List_of_physical_quantities ...
     }
 }

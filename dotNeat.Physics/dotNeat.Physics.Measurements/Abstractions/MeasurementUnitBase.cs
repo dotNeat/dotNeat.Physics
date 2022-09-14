@@ -34,41 +34,34 @@
             string symbol) 
             : base(id)
         {
-            this._name = name;
-            this._prefixId = prefixId;
-            this._quantityId = quantityId;
-            this._basePrefixId = basePrefixId;
-            this._baseUnitId = baseUnitId;
-            this._symbol = symbol;
+            this.Name = name;
+            this.PrefixId = prefixId;
+            this.QuantityId = quantityId;
+            this.BasePrefixId = basePrefixId;
+            this.BaseUnitId = baseUnitId;
+            this.Symbol = symbol;
         }
 
         public override string ToString()
         {
-            return $"{this._prefixId}{this._name}(base:{this._basePrefixId}{this._baseUnitId}) as {this._quantityId} quantity, [{this._symbol}]";
+            return $"{this.PrefixId}{this.Name}(base:{this.BasePrefixId}{this.BaseUnitId}) as {this.QuantityId} quantity, [{this.Symbol}]";
         }
 
         #region IUnit
 
-        private readonly string _name;
-        private readonly string _symbol;
-        private readonly PrefixID? _prefixId;
-        private readonly QuantityID _quantityId;
-        private readonly PrefixID? _basePrefixId;
-        private readonly Enum _baseUnitId;
-
         public new Enum ID => base.ID;
 
-        public string Name => this._name;
+        public string Name { get; private set; }
 
-        public string Symbol => this._symbol;
+        public string Symbol { get; private set; }
 
-        public PrefixID? PrefixId => this._prefixId;
+        public PrefixID? PrefixId { get; private set; }
 
-        public QuantityID QuantityId => this._quantityId;
+        public QuantityID QuantityId { get; private set; }
 
-        public PrefixID? BasePrefixId => this._basePrefixId;
+        public PrefixID? BasePrefixId { get; private set; }
 
-        public Enum BaseUnitId => this._baseUnitId;
+        public Enum BaseUnitId { get; private set; }
 
         #endregion IUnit
     }

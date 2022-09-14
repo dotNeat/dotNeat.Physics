@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Text;
+    using System.Diagnostics;
     using SI;
     #nullable enable
 
@@ -10,16 +11,63 @@
         : SystemMetadata<Quantity, QuantityID>
         , IQuantity
     {
-        private readonly string _name;
-        private readonly string? _symbol;
-        private readonly string _description;
-        private readonly string _dimension;
-        private readonly string? _comment;
-        private readonly IUnit _siUnit;
-        private readonly bool _isBaseQuantity;
+        #region Static members
+
+        public static readonly QuantityID[] BaseQuantityIDs;
+        public static readonly QuantityID[] SupplementaryQuantityIDs;
+        public static readonly QuantityID[] DerivedQuantityIDs;
 
         static Quantity()
         {
+            Quantity.BaseQuantityIDs = new QuantityID[]
+            {
+                QuantityID.Length,
+                QuantityID.Mass,
+                QuantityID.Time,
+                QuantityID.ElectricCurrent,
+                QuantityID.Temperature,
+                QuantityID.AmountOfSubstance,
+                QuantityID.LuminousIntensity,
+            };
+
+            Quantity.SupplementaryQuantityIDs = new QuantityID[]
+            {
+                QuantityID.PlaneAngle,
+                QuantityID.SolidAngle,
+            };
+
+            Quantity.DerivedQuantityIDs = new QuantityID[]
+            {
+               QuantityID.Absement,
+               QuantityID.AbsorbedDoseRate,
+               QuantityID.Acceleration,
+               QuantityID.AngularAcceleration,
+               QuantityID.AngularMomentum,
+               QuantityID.AngularVelocity,
+               QuantityID.Area,
+               QuantityID.AreaMassDensity,
+               QuantityID.Capacitance,
+               QuantityID.CatalyticActivityConcentration,
+               QuantityID.CentrifugalForce,
+               QuantityID.ChemicalPotential,
+               QuantityID.Crackle,
+               QuantityID.CurrentDensity,
+               QuantityID.DoseEquivalent,
+               QuantityID.DynamicViscosity,
+               QuantityID.ElectricCharge,
+               QuantityID.ElectricChrageDensity,
+               QuantityID.ElectricDipoleMoment,
+               QuantityID.ElectricDisplacementField,
+               //TODO: complete the list...
+            };
+
+            Debug.Assert(Enum.GetValues(typeof(QuantityID)).Length ==
+                Quantity.BaseQuantityIDs.Length
+                + Quantity.SupplementaryQuantityIDs.Length
+                + Quantity.DerivedQuantityIDs.Length,
+                $"Total number of {nameof(QuantityID)} values must match!"
+                );
+
             Quantity.EnsureMetadataPresent( new Quantity[]
                 {
                     // Base quantities:
@@ -92,7 +140,29 @@
                         "scalar",
                         null, //candela IUnit
                         true
-                    ), 
+                    ),
+
+                    // Supplementary quantities:
+                    new Quantity(
+                        QuantityID.PlaneAngle,
+                        "Plane Angle",
+                        "ϴ",
+                        "Ratio of circular arc length to radius",
+                        "1",
+                        String.Empty,
+                        null, //radian (rad) IUnit
+                        true
+                    ),
+                    new Quantity(
+                        QuantityID.SolidAngle,
+                        "Solid Angle",
+                        "Ω",
+                        "Ratio of area on a sphere to its radius squared",
+                        "1",
+                        String.Empty,
+                        null, //steradian (sr) IUnit
+                        true
+                    ),
 
                     // Derived quantities:
                     new Quantity(
@@ -109,6 +179,19 @@
                     //TODO: complete the list based on https://en.wikipedia.org/wiki/List_of_physical_quantities
                 });
         }
+
+        #endregion Static members
+
+        #region Instance members
+
+        public string Name { get; private set; }
+        public string? Symbol { get; private set; }
+        public string Description { get; private set; }
+        public string Dimension { get; private set; }
+        public string? Comment { get; private set; }
+        public IUnit SIUnit { get; private set; }
+        public bool IsBaseQuantity { get; private set; }
+
         private Quantity(
             QuantityID id, 
             string name, 
@@ -120,53 +203,21 @@
             bool isBaseQuantity = false) 
             : base(id)
         {
-            this._name = name;
-            this._symbol = symbol;
-            this._description = description;
-            this._dimension = dimension;
-            this._comment = comment;
-            this._siUnit = siUnit;
-            this._isBaseQuantity = isBaseQuantity;
+            this.Name = name;
+            this.Symbol = symbol;
+            this.Description = description;
+            this.Dimension = dimension;
+            this.Comment = comment;
+            this.SIUnit = siUnit;
+            this.IsBaseQuantity = isBaseQuantity;
         }
 
         public override string ToString()
         {
-            string suffix = this._isBaseQuantity ? "(base quantity)" : string.Empty;
-            return $"{this._name} ({this._symbol}): {this._description}, [{this._dimension}] {suffix}";
+            string suffix = this.IsBaseQuantity ? "(base quantity)" : string.Empty;
+            return $"{this.Name} ({this.Symbol}): {this.Description}, [{this.Dimension}] {suffix}";
         }
 
-        #region Implementation of IQuantity
-
-        public string Name
-        {
-            get { return this._name; }
-        }
-        public string? Symbol
-        {
-            get { return this._symbol; }
-        }
-        public string Description
-        {
-            get { return this._description; }
-        }
-        public string Dimension
-        {
-            get { return this._dimension; }
-        }
-        public string? Comment
-        {
-            get { return this._comment; }
-        }
-        public IUnit SIUnit
-        {
-            get { return this._siUnit; }
-        }
-
-        public bool IsBaseQuantity
-        {
-            get { return this._isBaseQuantity; }
-        }
-
-        #endregion Implementation of IQuantity
+        #endregion Instance members
     }
 }

@@ -7,8 +7,15 @@
       <FileName>Temperature.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="dotNeat.Physics.Measurements.TemperatureUnit">
+    <Position X="16.5" Y="1.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TemperatureUnit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Enum Name="dotNeat.Physics.Measurements.TemperatureUnitID">
-    <Position X="1.75" Y="0.75" Width="1.5" />
+    <Position X="1.75" Y="0.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAIAAAAAAACAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TemperatureUnitID.cs</FileName>

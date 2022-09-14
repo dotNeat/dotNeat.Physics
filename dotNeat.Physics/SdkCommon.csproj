@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="16.0">
+<Project ToolsVersion="16.0">
   
   <PropertyGroup Label="Toolset Related">
     <TargetFramework>netstandard2.1</TargetFramework>
@@ -85,10 +85,10 @@
   </ItemGroup>
 
   <ItemGroup Label="Package References">
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <!--ADD here-->
+	  <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.2">
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		  <PrivateAssets>all</PrivateAssets>
+	  </PackageReference>
+	  <!--ADD here-->
   </ItemGroup>
 </Project>

@@ -350,3 +350,5 @@ MigrationBackup/
 .ionide/
 
 dotNeat.Physics/.idea/
+
+.DS_Store

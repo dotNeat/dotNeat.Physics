@@ -1,31 +1,4 @@
-﻿//
-// MeasurementBase.cs
-// 12/11/2019 
-//
-// Author:
-//       Andrey Kornich (Wide Spectrum Computing LLC) <akornich@gmail.com>
-//
-// Copyright (c) 2019 dotNeat
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
-//
-namespace dotNeat.Physics.Measurements
+﻿namespace dotNeat.Physics.Measurements
 {
     using System;
     using dotNeat.Common.DesignPatterns.Prototype;
@@ -159,7 +132,7 @@ namespace dotNeat.Physics.Measurements
             return this.Clone();
         }
 
-        public static bool operator == (
+        public static bool operator ==(
             MeasurementBase<TValue, TUnit, TConcreteMeasurement> left,
             MeasurementBase<TValue, TUnit, TConcreteMeasurement> right)
         {
@@ -171,40 +144,74 @@ namespace dotNeat.Physics.Measurements
             return left.Equals(right);
         }
 
-        public static bool operator != (
+        public static bool operator !=(
             MeasurementBase<TValue, TUnit, TConcreteMeasurement> left,
             MeasurementBase<TValue, TUnit, TConcreteMeasurement> right)
         {
             return !(left == right);
         }
 
-        public static bool operator < (
+        public static bool operator <(
             MeasurementBase<TValue, TUnit, TConcreteMeasurement> left,
             MeasurementBase<TValue, TUnit, TConcreteMeasurement> right)
         {
             return ReferenceEquals(left, null) ? !ReferenceEquals(right, null) : left.CompareTo(right) < 0;
         }
 
-        public static bool operator <= (
+        public static bool operator <=(
             MeasurementBase<TValue, TUnit, TConcreteMeasurement> left,
             MeasurementBase<TValue, TUnit, TConcreteMeasurement> right)
         {
             return ReferenceEquals(left, null) || left.CompareTo(right) <= 0;
         }
 
-        public static bool operator > (
+        public static bool operator >(
             MeasurementBase<TValue, TUnit, TConcreteMeasurement> left,
             MeasurementBase<TValue, TUnit, TConcreteMeasurement> right)
         {
             return !ReferenceEquals(left, null) && left.CompareTo(right) > 0;
         }
 
-        public static bool operator >= (
+        public static bool operator >=(
             MeasurementBase<TValue, TUnit, TConcreteMeasurement> left,
             MeasurementBase<TValue, TUnit, TConcreteMeasurement> right)
         {
             return ReferenceEquals(left, null) ? ReferenceEquals(right, null) : left.CompareTo(right) >= 0;
         }
 
+        //public static bool operator ==(TConcreteMeasurement left, TConcreteMeasurement right)
+        //{
+        //    if (ReferenceEquals(left, null))
+        //    {
+        //        return ReferenceEquals(right, null);
+        //    }
+
+        //    return left.Equals(right);
+        //}
+
+        //public static bool operator !=(TConcreteMeasurement left, TConcreteMeasurement right)
+        //{
+        //    return !(left == right);
+        //}
+
+        //public static bool operator <(TConcreteMeasurement left, TConcreteMeasurement right)
+        //{
+        //    return ReferenceEquals(left, null) ? !ReferenceEquals(right, null) : left.CompareTo(right) < 0;
+        //}
+
+        //public static bool operator <=(TConcreteMeasurement left, TConcreteMeasurement right)
+        //{
+        //    return ReferenceEquals(left, null) || left.CompareTo(right) <= 0;
+        //}
+
+        //public static bool operator >(TConcreteMeasurement left, TConcreteMeasurement right)
+        //{
+        //    return !ReferenceEquals(left, null) && left.CompareTo(right) > 0;
+        //}
+
+        //public static bool operator >=(TConcreteMeasurement left, TConcreteMeasurement right)
+        //{
+        //    return ReferenceEquals(left, null) ? ReferenceEquals(right, null) : left.CompareTo(right) >= 0;
+        //}
     }
 }
