@@ -37,7 +37,7 @@
         DoseEquivalent,
         DynamicViscosity,
         ElectricCharge,
-        ElectricChrageDensity,
+        ElectricChargeDensity,
         ElectricDipoleMoment,
         ElectricDisplacementField,
         //TODO continue from https://en.wikipedia.org/wiki/List_of_physical_quantities ...

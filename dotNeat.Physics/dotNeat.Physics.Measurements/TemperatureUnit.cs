@@ -9,18 +9,34 @@
     using dotNeat.Physics.Measurements.Abstractions.SI;
 
     public class TemperatureUnit
-        :MeasurementUnitBase<TemperatureUnit, TemperatureUnitID>
+        :MeasurementUnitBase<TemperatureUnit, TemperatureUnitID, double>
     {
         static TemperatureUnit()
         {
             TemperatureUnit.EnsureMetadataPresent(new TemperatureUnit[] {
-                new TemperatureUnit(TemperatureUnitID.Kelvin),
-                new TemperatureUnit(TemperatureUnitID.Celsius),
-                new TemperatureUnit(TemperatureUnitID.Fahrenheit),
+                new TemperatureUnit(
+                    id:             TemperatureUnitID.Kelvin,
+                    toBaseUnit:     (v) => v, 
+                    fromBaseUnit:   (v) => v
+                    ),
+                new TemperatureUnit(
+                    id:             TemperatureUnitID.Celsius, 
+                    toBaseUnit:     (v) => (v + 273.15), 
+                    fromBaseUnit:   (v) => (v - 273.15)
+                    ),
+                new TemperatureUnit(
+                    id:             TemperatureUnitID.Fahrenheit, 
+                    toBaseUnit:     (v) => (((v + 459.67) * 5) / 9), 
+                    fromBaseUnit:   (v) => (((v * 5) / 9) - 459.67)
+                    ),
             });
         }
-        private TemperatureUnit(TemperatureUnitID id) 
-            : base(id, null, QuantityID.Temperature, null, TemperatureUnitID.Kelvin,  $"°{id.ToString().First()}")
+        private TemperatureUnit(
+            TemperatureUnitID id,
+            Func<double, double> toBaseUnit,
+            Func<double, double> fromBaseUnit
+            ) 
+            : base(id, null, QuantityID.Temperature, null, TemperatureUnitID.Kelvin,  $"°{id.ToString().First()}", toBaseUnit, fromBaseUnit)
         {
         }
     }

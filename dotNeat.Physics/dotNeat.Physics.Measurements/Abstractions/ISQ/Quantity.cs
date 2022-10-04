@@ -55,7 +55,7 @@
                QuantityID.DoseEquivalent,
                QuantityID.DynamicViscosity,
                QuantityID.ElectricCharge,
-               QuantityID.ElectricChrageDensity,
+               QuantityID.ElectricChargeDensity,
                QuantityID.ElectricDipoleMoment,
                QuantityID.ElectricDisplacementField,
                //TODO: complete the list...
@@ -212,12 +212,58 @@
             this.IsBaseQuantity = isBaseQuantity;
         }
 
+        public Quantity(QuantityID id, string? symbol, string description, string dimension, string? comment, IUnit siUnit, bool isBaseQuantity) : base(id)
+        {
+        }
+
         public override string ToString()
         {
             string suffix = this.IsBaseQuantity ? "(base quantity)" : string.Empty;
             return $"{this.Name} ({this.Symbol}): {this.Description}, [{this.Dimension}] {suffix}";
         }
 
+        public override bool Equals(object? obj)
+        {
+            return obj is Quantity quantity&&
+                   ID==quantity.ID&&
+                   Name==quantity.Name&&
+                   Symbol==quantity.Symbol;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(ID, Name, Symbol);
+        }
+
         #endregion Instance members
     }
+
+    public class Quantity<TValue>
+    : Quantity
+    , IQuantity<TValue>
+    where TValue : IEquatable<TValue>, IComparable<TValue>, IComparable
+    {
+        #region Instance members
+
+        public IUnit<TValue> SIUnit {
+            get { return (IUnit<TValue>) base.SIUnit; } 
+            //private set; 
+        }
+
+        private Quantity(
+            QuantityID id,
+            string name,
+            string? symbol,
+            string description,
+            string dimension,
+            string? comment,
+            IUnit<TValue> siUnit,
+            bool isBaseQuantity = false)
+            : base(id, symbol, description, dimension, comment, siUnit, isBaseQuantity)
+        {
+        }
+
+        #endregion Instance members
+    }
+
 }

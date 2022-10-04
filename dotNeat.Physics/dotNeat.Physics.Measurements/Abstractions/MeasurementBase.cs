@@ -2,6 +2,8 @@
 {
     using System;
     using dotNeat.Common.DesignPatterns.Prototype;
+    using dotNeat.Physics.Measurements.Abstractions;
+    using dotNeat.Physics.Measurements.Abstractions.SI;
 
     public abstract class MeasurementBase<TValue, TUnit, TConcreteMeasurement>
         : IMeasurement
@@ -30,6 +32,16 @@
         public abstract string Render();
         protected abstract TConcreteMeasurement ToBaseUnit();
         protected abstract TConcreteMeasurement FromBaseUnitAs(TUnit unit);
+
+
+
+
+        //private TValue ToBaseUnitValue() 
+        //{
+        //    IUnit<TValue> unit = (IUnit<TValue>) SystemMetadata.Get(this.Unit as Enum);
+        //}
+        //private TValue FromBaseUnitValueAs(TUnit unit) { }
+
 
         public TConcreteMeasurement As(TUnit unit)
         {

@@ -3,7 +3,7 @@
   <Class Name="dotNeat.Physics.Measurements.MeasurementBase&lt;TValue, TUnit, TConcreteMeasurement&gt;">
     <Position X="14" Y="3.75" Width="9.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAAASEoACAAgBAgAAQQIAAABAgEQAABzA=</HashCode>
+      <HashCode>AAAQAAAAABAAAASEoACAAgBAgIAQQIAAABAgEQAABzA=</HashCode>
       <FileName>Abstractions\MeasurementBase.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -16,10 +16,10 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="dotNeat.Physics.Measurements.Abstractions.MeasurementUnitBase&lt;TMeasurementUnit, TMeasurementUnitID&gt;">
+  <Class Name="dotNeat.Physics.Measurements.Abstractions.MeasurementUnitBase&lt;TMeasurementUnit, TMeasurementUnitID, TValue&gt;">
     <Position X="0.75" Y="4.5" Width="10.25" />
     <TypeIdentifier>
-      <HashCode>AAAAIAACAAAAgAAEACAAAAQAAIAAAAASIAEAAACACAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAEAAAAAAYAAIAAAAAQIAEAAAAACAA=</HashCode>
       <FileName>Abstractions\MeasurementUnitBase.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />

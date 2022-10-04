@@ -6,22 +6,38 @@
     using dotNeat.Physics.Measurements.Abstractions.ISQ;
     using dotNeat.Physics.Measurements.Abstractions.SI;
 
-        public abstract class MeasurementUnitBase<TMeasurementUnit, TMeasurementUnitID>
+        public abstract class MeasurementUnitBase<TMeasurementUnit, TMeasurementUnitID, TValue>
         :SystemMetadata<TMeasurementUnit, TMeasurementUnitID>
-        , IUnit
-        where TMeasurementUnit : MeasurementUnitBase<TMeasurementUnit, TMeasurementUnitID>
+        , IUnit<TValue>
+        where TMeasurementUnit : MeasurementUnitBase<TMeasurementUnit, TMeasurementUnitID, TValue>
         where TMeasurementUnitID : Enum
+        where TValue : IEquatable<TValue>, IComparable<TValue>, IComparable
     {
+
+        //protected MeasurementUnitBase(
+        //    TMeasurementUnitID id,
+        //    PrefixID? prefixId,
+        //    QuantityID quantityId,
+        //    PrefixID? basePrefixId,
+        //    Enum baseUnitId,
+        //    string symbol
+        //    )
+        //    : this(id, id.ToString(), prefixId, quantityId, basePrefixId, baseUnitId, symbol, (v) => v, (v) => v)
+        //{
+        //}
+
         protected MeasurementUnitBase(
             TMeasurementUnitID id, 
             PrefixID? prefixId, 
             QuantityID quantityId, 
-            PrefixID? basePrefixId, 
-            Enum baseUnitId,
-            string symbol) 
-            : this(id, id.ToString(), prefixId, quantityId, basePrefixId, baseUnitId, symbol)
+            PrefixID? basePrefixId,
+            TMeasurementUnitID baseUnitId,
+            string symbol,
+            Func<TValue, TValue> toBaseUnit,
+            Func<TValue, TValue> fromBaseUnit
+            )
+            : this(id, id.ToString(), prefixId, quantityId, basePrefixId, baseUnitId, symbol, toBaseUnit, fromBaseUnit)
         {
-
         }
 
         protected MeasurementUnitBase(
@@ -29,9 +45,12 @@
             string name, 
             PrefixID? prefixId, 
             QuantityID quantityId, 
-            PrefixID? basePrefixId, 
-            Enum baseUnitId,
-            string symbol) 
+            PrefixID? basePrefixId,
+            TMeasurementUnitID baseUnitId,
+            string symbol,
+            Func<TValue, TValue> toBaseUnit,
+            Func<TValue, TValue> fromBaseUnit
+            )
             : base(id)
         {
             this.Name = name;
@@ -40,6 +59,9 @@
             this.BasePrefixId = basePrefixId;
             this.BaseUnitId = baseUnitId;
             this.Symbol = symbol;
+
+            this.ToBaseUnitValue = toBaseUnit;
+            this.FromBaseUnitValue = fromBaseUnit;
         }
 
         public override string ToString()
@@ -49,7 +71,7 @@
 
         #region IUnit
 
-        public new Enum ID => base.ID;
+        public new TMeasurementUnitID ID => base.ID;
 
         public string Name { get; private set; }
 
@@ -61,7 +83,21 @@
 
         public PrefixID? BasePrefixId { get; private set; }
 
-        public Enum BaseUnitId { get; private set; }
+        public TMeasurementUnitID BaseUnitId { get; private set; }
+
+        public Func<TValue, TValue> ToBaseUnitValue { get; private set; } = (v) => v;
+
+        public Func<TValue, TValue> FromBaseUnitValue { get; private set; } = (v) => v;
+        Func<TValue, TValue> IUnit<TValue>.ToBaseUnitValue { get; }
+        Func<TValue, TValue> IUnit<TValue>.FromBaseUnitValue { get; }
+
+        Enum IUnit.ID => this.ID;
+        string IUnit.Name => this.Name;
+        string IUnit.Symbol => this.Symbol;
+        PrefixID? IUnit.PrefixId => this.PrefixId;
+        QuantityID IUnit.QuantityId => this.QuantityId;
+        PrefixID? IUnit.BasePrefixId => this.BasePrefixId;
+        Enum IUnit.BaseUnitId => this.BaseUnitId;
 
         #endregion IUnit
     }

@@ -7,10 +7,10 @@
     public class Temperature
         : MeasurementBase<double, TemperatureUnitID, Temperature>
     {
-        public const TemperatureUnitID TemperatureBaseUnit = TemperatureUnitID.Kelvin;
+        //public const TemperatureUnitID TemperatureBaseUnit = TemperatureUnitID.Kelvin;
 
         public Temperature(double value)
-            : this(value, Temperature.TemperatureBaseUnit)
+            : this(value, TemperatureUnit.Set.First().BaseUnitId)
         {
         }
 
@@ -19,57 +19,80 @@
         {
         }
 
-        public override TemperatureUnitID BaseUnit => Temperature.TemperatureBaseUnit;
+        public override TemperatureUnitID BaseUnit => TemperatureUnit.Set.First().BaseUnitId; //Temperature.TemperatureBaseUnit;
 
         protected override Temperature ToBaseUnit()
         {
-            Debug.Assert(this.BaseUnit == TemperatureUnitID.Kelvin);
+            Debug.Assert(this.BaseUnit == TemperatureUnit.Set.First().BaseUnitId);
 
-            switch (this.Unit)
+            //switch (this.Unit)
+            //{
+            //    case TemperatureUnitID.Celsius:
+            //        return new Temperature(
+            //            this.Value + 273.15
+            //            , this.BaseUnit
+            //            );
+            //    case TemperatureUnitID.Fahrenheit:
+            //        return new Temperature(
+            //            ((this.Value + 459.67) * 5) / 9
+            //            , this.BaseUnit
+            //            );
+            //    case TemperatureUnitID.Kelvin:
+            //        return this;
+            //    default:
+            //        const string msg = "Unexpected enum value!";
+            //        Debug.Assert(false, msg);
+            //        throw new NotImplementedException(msg);
+            //}
+
+            TemperatureUnit measurementUnit = TemperatureUnit.Get(this.Unit);
+            if (measurementUnit == null)
             {
-                case TemperatureUnitID.Celsius:
-                    return new Temperature(
-                        this.Value + 273.15
-                        , this.BaseUnit
-                        );
-                case TemperatureUnitID.Fahrenheit:
-                    return new Temperature(
-                        ((this.Value + 459.67) * 5) / 9
-                        , this.BaseUnit
-                        );
-                case TemperatureUnitID.Kelvin:
-                    return this;
-                default:
-                    const string msg = "Unexpected enum value!";
-                    Debug.Assert(false, msg);
-                    throw new NotImplementedException(msg);
+                Debug.Fail($"Couldn't find proper {nameof(TemperatureUnit)} for {this.Unit}!");
+                return null;
             }
+
+            return new Temperature(measurementUnit.ToBaseUnitValue(this.Value), measurementUnit.BaseUnitId);
         }
 
         protected override Temperature FromBaseUnitAs(TemperatureUnitID unit)
         {
             Debug.Assert(this.Unit == this.BaseUnit);
-            Debug.Assert(this.BaseUnit == TemperatureUnitID.Kelvin);
+            Debug.Assert(this.BaseUnit == TemperatureUnit.Set.First().BaseUnitId);
 
-            switch (unit)
+            //switch (unit)
+            //{
+            //    case TemperatureUnitID.Celsius:
+            //        return new Temperature(
+            //            this.Value - 273.15
+            //            , unit
+            //            );
+            //    case TemperatureUnitID.Fahrenheit:
+            //        return new Temperature(
+            //            ((this.Value * 5) / 9) - 459.67
+            //            , unit
+            //            );
+            //    case TemperatureUnitID.Kelvin:
+            //        return this;
+            //    default:
+            //        const string msg = "Unexpected enum value!";
+            //        Debug.Assert(false, msg);
+            //        throw new NotImplementedException(msg);
+            //}
+
+            if (this.BaseUnit == TemperatureUnit.Set.First().BaseUnitId)
             {
-                case TemperatureUnitID.Celsius:
-                    return new Temperature(
-                        this.Value - 273.15
-                        , unit
-                        );
-                case TemperatureUnitID.Fahrenheit:
-                    return new Temperature(
-                        ((this.Value * 5) / 9) - 459.67
-                        , unit
-                        );
-                case TemperatureUnitID.Kelvin:
-                    return this;
-                default:
-                    const string msg = "Unexpected enum value!";
-                    Debug.Assert(false, msg);
-                    throw new NotImplementedException(msg);
+                return this;
             }
+
+            TemperatureUnit measurementUnit = TemperatureUnit.Get(unit);
+            if (measurementUnit == null)
+            {
+                Debug.Fail($"Couldn't find proper {nameof(TemperatureUnit)} for {unit}!");
+                return null;
+            }
+
+            return new Temperature(measurementUnit.FromBaseUnitValue(this.Value), measurementUnit.ID);
         }
 
         public override string Render()
@@ -123,7 +146,7 @@
         }
 
 
-        public static Temperature Create(double value, TemperatureUnitID unit = TemperatureBaseUnit)
+        public static Temperature Create(double value, TemperatureUnitID unit)
         {
             return new Temperature(value, unit);
         }

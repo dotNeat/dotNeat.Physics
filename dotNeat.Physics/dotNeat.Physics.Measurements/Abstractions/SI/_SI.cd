@@ -21,10 +21,10 @@
       <FileName>Abstractions\SI\Unit.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="dotNeat.Physics.Measurements.Abstractions.SI.IUnit">
+  <Interface Name="dotNeat.Physics.Measurements.Abstractions.SI.IUnit&lt;TValue&gt;">
     <Position X="17.25" Y="1.25" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAEAAAAAAQAAAAAAAAQIAEAAAAACAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAEAAAAAAYAAIAAAAAQIAEAAAAACAA=</HashCode>
       <FileName>Abstractions\SI\IUnit.cs</FileName>
     </TypeIdentifier>
   </Interface>

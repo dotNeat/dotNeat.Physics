@@ -1,6 +1,8 @@
 ﻿namespace dotNeat.Physics.Measurements.Abstractions.ISQ
 {
     using SI;
+
+    using System;
 #nullable enable
 
     /// <summary>
@@ -40,14 +42,18 @@
         /// <value>The comment.</value>
         string? Comment { get; }
         /// <summary>
-        /// Gets the si unit.
-        /// </summary>
-        /// <value>The si unit.</value>
-        IUnit SIUnit { get; }
-        /// <summary>
         /// Gets a value indicating whether this instance is base quantity.
         /// </summary>
         /// <value><c>true</c> if this instance is base quantity; otherwise, <c>false</c>.</value>
         bool IsBaseQuantity { get; }
+
+        IUnit SIUnit { get; }
+    }
+
+    public interface IQuantity<TValue> 
+        : IQuantity
+        where TValue : IEquatable<TValue>, IComparable<TValue>, IComparable
+    {
+        new IUnit<TValue> SIUnit { get; }
     }
 }
